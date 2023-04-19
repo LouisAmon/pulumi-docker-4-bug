@@ -1,9 +1,5 @@
 name: pulumi-docker-4-bug
 runtime: yaml
-# runtime:
-#   name: python
-#   options:
-#     virtualenv: venv
 resources:
   ok:
     type: docker:Image
