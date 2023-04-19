@@ -5,7 +5,8 @@
 !Dockerfile
 !.dockerignore
 
-!projects/api/src
+!ok
+!not-ok/api/src
 
 # Ignore unnecessary files inside allowed directories
 **/__pycache__/

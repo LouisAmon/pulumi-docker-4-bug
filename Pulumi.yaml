@@ -1,6 +1,24 @@
 name: pulumi-docker-4-bug
-runtime:
-  name: python
-  options:
-    virtualenv: venv
-description: A minimal AWS Python Pulumi program
+runtime: yaml
+# runtime:
+#   name: python
+#   options:
+#     virtualenv: venv
+resources:
+  ok:
+    type: docker:Image
+    properties:
+      imageName: ok
+      skipPush: true
+      build:
+        platform: linux/arm64
+        target: ok
+
+  not-ok:
+    type: docker:Image
+    properties:
+      imageName: not-ok
+      skipPush: true
+      build:
+        platform: linux/arm64
+        target: not-ok

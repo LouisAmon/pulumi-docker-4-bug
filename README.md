@@ -6,7 +6,7 @@ This repo is a minimal reproduction of a bug in pulumi-docker 4.x.
 
 1. Clone this repo
 2. Run `pulumi up`
-3. Alter [foo.py](projects/api/src/foo.py) and replace "bar" with "baz"
+3. Alter [not-ok/api/src/foo.py](not-ok/api/src/foo.py) and replace "bar" with "baz"
 4. Run `pulumi up` again
 
 ## Expected behavior
@@ -22,7 +22,7 @@ No diff. The image is not updated.
 You can follow these steps to verify that Docker does pick up the changes:
 
 ```bash
-docker build -t pulumi-docker-bug .
+docker build --tag pulumi-docker-bug . --target not-ok && \
 docker run --rm -it pulumi-docker-bug
 ```
 
@@ -30,9 +30,4 @@ Should initally print "bar".
 
 Then edit [foo.py](projects/api/src/foo.py) and replace "bar" with "baz" again.
 
-```bash
-docker build -t pulumi-docker-bug .
-docker run --rm -it pulumi-docker-bug
-```
-
-Should print "baz".
+Rerun the above command and it should print "baz".
