@@ -1,0 +1,6 @@
+name: pulumi-docker-4-bug
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A minimal AWS Python Pulumi program
